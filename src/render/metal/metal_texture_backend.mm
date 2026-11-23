@@ -106,27 +106,6 @@ class MetalTextureBackend::MetalTextureRenderableResource final
         MTL::TextureUsageRenderTarget
       );
 
-#if !TARGET_OS_SIMULATOR
-    stencilTexture = context.createTexture2D();
-    stencilTexture->setSize(size);
-    stencilTexture->setFormat(
-      mln::gfx::TexturePixelType::Stencil,
-      mln::gfx::TextureChannelDataType::UnsignedByte
-    );
-    stencilTexture->setSamplerConfiguration(
-      {.filter = mln::gfx::TextureFilterType::Linear,
-       .wrapU = mln::gfx::TextureWrapType::Clamp,
-       .wrapV = mln::gfx::TextureWrapType::Clamp}
-    );
-    // The texture was created by mln::mtl::Context above.
-    // NOLINTNEXTLINE(cppcoreguidelines-pro-type-static-cast-downcast)
-    static_cast<mln::mtl::Texture2D*>(stencilTexture.get())
-      ->setUsage(
-        MTL::TextureUsageShaderRead | MTL::TextureUsageShaderWrite |
-        MTL::TextureUsageRenderTarget
-      );
-#endif
-
     context.renderingStats().numFrameBuffers++;
   }
   MetalTextureRenderableResource(const MetalTextureRenderableResource&) =
@@ -188,6 +167,38 @@ class MetalTextureBackend::MetalTextureRenderableResource final
     }
     if (depthTexture != nullptr) {
       depthTexture->create();
+      if (stencilTexture == nullptr) {
+        // The texture was created by mln::mtl::Context above.
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-static-cast-downcast)
+        const auto depthFormat =
+          static_cast<mln::mtl::Texture2D*>(depthTexture.get())
+            ->getMetalTexture()
+            ->pixelFormat();
+        if (depthFormat == MTL::PixelFormatDepth32Float_Stencil8) {
+          // Native uses a combined format on simulators and Intel Macs.
+          // Metal requires both attachments to reference the same texture.
+          stencilTexture = depthTexture;
+        } else {
+          stencilTexture = context.createTexture2D();
+          stencilTexture->setSize(size);
+          stencilTexture->setFormat(
+            mln::gfx::TexturePixelType::Stencil,
+            mln::gfx::TextureChannelDataType::UnsignedByte
+          );
+          stencilTexture->setSamplerConfiguration(
+            {.filter = mln::gfx::TextureFilterType::Linear,
+             .wrapU = mln::gfx::TextureWrapType::Clamp,
+             .wrapV = mln::gfx::TextureWrapType::Clamp}
+          );
+          // The texture was created by mln::mtl::Context above.
+          // NOLINTNEXTLINE(cppcoreguidelines-pro-type-static-cast-downcast)
+          static_cast<mln::mtl::Texture2D*>(stencilTexture.get())
+            ->setUsage(
+              MTL::TextureUsageShaderRead | MTL::TextureUsageShaderWrite |
+              MTL::TextureUsageRenderTarget
+            );
+        }
+      }
       if (auto* depthTarget = renderPassDescriptor->depthAttachment()) {
         depthTarget->setTexture(
           // The texture was created by mln::mtl::Context above.

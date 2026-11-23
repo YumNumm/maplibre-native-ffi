@@ -255,7 +255,11 @@ Future<Uri> _download(
   }
 
   stderr.writeln('Downloading $archiveName from $tag.');
-  final archive = await _fetch('$releaseUrl/$tag/$archiveName');
+  // An entry that names its own URL is served from there instead of from the
+  // release, so one platform's archive can come from another build.
+  final archive = await _fetch(
+    entries.single['url'] as String? ?? '$releaseUrl/$tag/$archiveName',
+  );
   if (sha256.convert(archive).toString() != digest) {
     throw StateError('$archiveName does not match its digest pinned for $tag.');
   }
