@@ -1,0 +1,791 @@
+{
+  "schemaVersion": 0,
+  "tag": "v0.202611.0",
+  "version": "0.202611.0",
+  "commit": "84701dd9e4f9a0399d2101d3de67f96d0724f91c",
+  "platforms": [
+    {
+      "id": "android-arm",
+      "rustTarget": "armv7-linux-androideabi",
+      "zigTarget": "arm-linux-android",
+      "android": {
+        "abi": "armeabi-v7a",
+        "api": 24
+      },
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "android-arm64",
+      "rustTarget": "aarch64-linux-android",
+      "zigTarget": "aarch64-linux-android",
+      "android": {
+        "abi": "arm64-v8a",
+        "api": 24
+      },
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "android-x64",
+      "rustTarget": "x86_64-linux-android",
+      "zigTarget": "x86_64-linux-android",
+      "android": {
+        "abi": "x86_64",
+        "api": 24
+      },
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "android-x86",
+      "rustTarget": "i686-linux-android",
+      "zigTarget": "x86-linux-android",
+      "android": {
+        "abi": "x86",
+        "api": 24
+      },
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "emscripten-wasm32",
+      "rustTarget": "wasm32-unknown-emscripten",
+      "zigTarget": "wasm32-emscripten",
+      "android": null,
+      "defaultBackend": "webgpu"
+    },
+    {
+      "id": "freebsd-x64",
+      "rustTarget": "x86_64-unknown-freebsd",
+      "zigTarget": "x86_64-freebsd",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "ios-arm64",
+      "rustTarget": "aarch64-apple-ios",
+      "zigTarget": "aarch64-ios",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "ios-maccatalyst-arm64",
+      "rustTarget": "aarch64-apple-ios-macabi",
+      "zigTarget": "aarch64-maccatalyst",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "ios-simulator-arm64",
+      "rustTarget": "aarch64-apple-ios-sim",
+      "zigTarget": "aarch64-ios-simulator",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "linux-gnu-arm64",
+      "rustTarget": "aarch64-unknown-linux-gnu",
+      "zigTarget": "aarch64-linux-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-gnu-loongarch64",
+      "rustTarget": "loongarch64-unknown-linux-gnu",
+      "zigTarget": "loongarch64-linux-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-gnu-riscv64",
+      "rustTarget": "riscv64gc-unknown-linux-gnu",
+      "zigTarget": "riscv64-linux-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-gnu-x64",
+      "rustTarget": "x86_64-unknown-linux-gnu",
+      "zigTarget": "x86_64-linux-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-musl-arm64",
+      "rustTarget": "aarch64-unknown-linux-musl",
+      "zigTarget": "aarch64-linux-musl",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-musl-loongarch64",
+      "rustTarget": "loongarch64-unknown-linux-musl",
+      "zigTarget": "loongarch64-linux-musl",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-musl-riscv64",
+      "rustTarget": "riscv64gc-unknown-linux-musl",
+      "zigTarget": "riscv64-linux-musl",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "linux-musl-x64",
+      "rustTarget": "x86_64-unknown-linux-musl",
+      "zigTarget": "x86_64-linux-musl",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "macos-arm64",
+      "rustTarget": "aarch64-apple-darwin",
+      "zigTarget": "aarch64-macos",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "macos-x64",
+      "rustTarget": "x86_64-apple-darwin",
+      "zigTarget": "x86_64-macos",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "ohos-arm64",
+      "rustTarget": "aarch64-unknown-linux-ohos",
+      "zigTarget": "aarch64-linux-ohos",
+      "android": null,
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "ohos-x64",
+      "rustTarget": "x86_64-unknown-linux-ohos",
+      "zigTarget": "x86_64-linux-ohos",
+      "android": null,
+      "defaultBackend": "opengl"
+    },
+    {
+      "id": "tvos-arm64",
+      "rustTarget": "aarch64-apple-tvos",
+      "zigTarget": "aarch64-tvos",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "tvos-simulator-arm64",
+      "rustTarget": "aarch64-apple-tvos-sim",
+      "zigTarget": "aarch64-tvos-simulator",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "visionos-arm64",
+      "rustTarget": "aarch64-apple-visionos",
+      "zigTarget": "aarch64-visionos",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "visionos-simulator-arm64",
+      "rustTarget": "aarch64-apple-visionos-sim",
+      "zigTarget": "aarch64-visionos-simulator",
+      "android": null,
+      "defaultBackend": "metal"
+    },
+    {
+      "id": "windows-arm64",
+      "rustTarget": "aarch64-pc-windows-msvc",
+      "zigTarget": "aarch64-windows-msvc",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "windows-mingw-arm64",
+      "rustTarget": "aarch64-pc-windows-gnullvm",
+      "zigTarget": "aarch64-windows-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "windows-mingw-x64",
+      "rustTarget": "x86_64-pc-windows-gnu",
+      "zigTarget": "x86_64-windows-gnu",
+      "android": null,
+      "defaultBackend": "vulkan"
+    },
+    {
+      "id": "windows-x64",
+      "rustTarget": "x86_64-pc-windows-msvc",
+      "zigTarget": "x86_64-windows-msvc",
+      "android": null,
+      "defaultBackend": "vulkan"
+    }
+  ],
+  "artifacts": [
+    {
+      "platform": "android-arm",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-android-arm-egl.tar.gz",
+      "sha256": "cff8a42bcdb17175f61f359bbb9be35f4d5dee8889c8a08d7272b4f49871b35e",
+      "sbom": {
+        "file": "maplibre-native-c-android-arm-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm-egl.cdx.json",
+        "sha256": "9c6bd44d498b0fad8ca27b25a1c2d2ad74bcd86f81f5da031b58af6e2c324f00"
+      }
+    },
+    {
+      "platform": "android-arm",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-android-arm-vulkan.tar.gz",
+      "sha256": "5e79fceaa46d323e4ad3a57925391d4da159f7f4378b03185ae78aaf26cc5038",
+      "sbom": {
+        "file": "maplibre-native-c-android-arm-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm-vulkan.cdx.json",
+        "sha256": "1033fc65205ad74cc0288369ca4b16166d79e15447d8f0a95e321275580d39e8"
+      }
+    },
+    {
+      "platform": "android-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-android-arm64-egl.tar.gz",
+      "sha256": "08306a064c84f24eba6c4a4115ab6186124488909340ac089369c1771f2b50f0",
+      "sbom": {
+        "file": "maplibre-native-c-android-arm64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm64-egl.cdx.json",
+        "sha256": "c713646857d9532c0c06de53a259171100b91f173b48a6acad1d59d8f8f543d7"
+      }
+    },
+    {
+      "platform": "android-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-android-arm64-vulkan.tar.gz",
+      "sha256": "df677355a20956d0c9c68c822212a0e6cec0bf9a2dd4eea6495962787b95c2d6",
+      "sbom": {
+        "file": "maplibre-native-c-android-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm64-vulkan.cdx.json",
+        "sha256": "1bc035c56be34b989180d2c53732e6ba4646f0f2b9d045e7bdf81bdf287bb226"
+      }
+    },
+    {
+      "platform": "android-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-android-x64-egl.tar.gz",
+      "sha256": "5bcaf3994219e4845cdecc33acb528c526212d6e5a3a405329f731c856a5dcdd",
+      "sbom": {
+        "file": "maplibre-native-c-android-x64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-x64-egl.cdx.json",
+        "sha256": "813fa9a46b561c9157afebcdfe85333b4649518aa61927da8d23c5584e427963"
+      }
+    },
+    {
+      "platform": "android-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-android-x64-vulkan.tar.gz",
+      "sha256": "f76c0bfa72d2a9de59ba51794bc69e7bb654564339631aceea2f5f15665a1721",
+      "sbom": {
+        "file": "maplibre-native-c-android-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-x64-vulkan.cdx.json",
+        "sha256": "810ad331c194a6b72a78f9b2c9a5590860bcd390b8d6b864357cc4ea4bc2c69e"
+      }
+    },
+    {
+      "platform": "android-x86",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-android-x86-egl.tar.gz",
+      "sha256": "b9d06c95a1bf6bede4fd0f602535647dec6455010d19812e2f316d18355967dd",
+      "sbom": {
+        "file": "maplibre-native-c-android-x86-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-x86-egl.cdx.json",
+        "sha256": "1ea837fca26d2c94acc9237cc5fdedbed0ed9bd2a515ab82b114dca026734222"
+      }
+    },
+    {
+      "platform": "android-x86",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-android-x86-vulkan.tar.gz",
+      "sha256": "d200245ce8fea7b0466d2b8965fa5b5a6fdfbdc5a0c98646b3a566c9765cc3e7",
+      "sbom": {
+        "file": "maplibre-native-c-android-x86-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-x86-vulkan.cdx.json",
+        "sha256": "fba40d3ded8ae45eae5d06a62fdd885439544013a58af98ce154d4ab3327e3d9"
+      }
+    },
+    {
+      "platform": "emscripten-wasm32",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-emscripten-wasm32-webgl.tar.gz",
+      "sha256": "36b6898aa54729f2b0c7f468ded9005bada2c4978b2b3284384179922cfbcfbf",
+      "sbom": {
+        "file": "maplibre-native-c-emscripten-wasm32-webgl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-emscripten-wasm32-webgl.cdx.json",
+        "sha256": "9da4158d3c28a417f6f6d2e9057747b32eeb02d47d2491cb99ad302f7f8c84a1"
+      }
+    },
+    {
+      "platform": "emscripten-wasm32",
+      "backend": "webgpu",
+      "archive": "maplibre-native-c-emscripten-wasm32-webgpu.tar.gz",
+      "sha256": "e230c9febc7d3eae1216868a70727db19f245f44dc512f10f16f6cb57738a1c3",
+      "sbom": {
+        "file": "maplibre-native-c-emscripten-wasm32-webgpu.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-emscripten-wasm32-webgpu.cdx.json",
+        "sha256": "d5e9531e73b7db4c3a841c9d06b25b1257655b757fec47f4f6e239bda826cc60"
+      }
+    },
+    {
+      "platform": "freebsd-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-freebsd-x64-egl.tar.gz",
+      "sha256": "9a16199f6c1ff932968be8c4d53e4bbc1d75ab7556d628226490896c0063acbd",
+      "sbom": {
+        "file": "maplibre-native-c-freebsd-x64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-freebsd-x64-egl.cdx.json",
+        "sha256": "d0e4fd5f9f449ce6379508b65a645fbed1b2105249c06bc0f6085f330bef30f2"
+      }
+    },
+    {
+      "platform": "freebsd-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-freebsd-x64-vulkan.tar.gz",
+      "sha256": "099751a0cb70717863af064a56fde03c26f8099e06e7cf0b33c63c37485348e5",
+      "sbom": {
+        "file": "maplibre-native-c-freebsd-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-freebsd-x64-vulkan.cdx.json",
+        "sha256": "f59a006a8c6e3851f0a50ab72268d4102257ff450f430540280318b227c2f754"
+      }
+    },
+    {
+      "platform": "ios-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-ios-arm64-metal.tar.gz",
+      "sha256": "a68048df7b356f43f9a3ae8fa6cd899aa1cebedc24a40de3fcd3b623aaea67b9",
+      "sbom": {
+        "file": "maplibre-native-c-ios-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ios-arm64-metal.cdx.json",
+        "sha256": "69f36aeea719eb0c03b2bc9c2db530fcd87a8691a4e47d146ef57d2829a3d2fa"
+      }
+    },
+    {
+      "platform": "ios-maccatalyst-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-ios-maccatalyst-arm64-metal.tar.gz",
+      "sha256": "5b852e0e3f88c5d00b688c514aa8f63f32fb504adeece323e90e00cddc65e3f3",
+      "sbom": {
+        "file": "maplibre-native-c-ios-maccatalyst-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ios-maccatalyst-arm64-metal.cdx.json",
+        "sha256": "4b2b786fec3fa41da8d8d2f374354e4f8f1241a119c33b1f1f3bfe1b8966cd14"
+      }
+    },
+    {
+      "platform": "ios-simulator-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-ios-simulator-arm64-metal.tar.gz",
+      "sha256": "2dfcdb01fd49084c2c4eecfbddfc78cd886e3153a546e426da3c652eeab66263",
+      "url": "https://github.com/YumNumm/maplibre-native-ffi/releases/download/v0.202611.0-yumnumm.1/maplibre-native-c-ios-simulator-arm64-metal.tar.gz"
+    },
+    {
+      "platform": "linux-gnu-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-gnu-arm64-egl.tar.gz",
+      "sha256": "32267eceaf5d781ded53057f5825855cc2fbf06ace231486852df38a91913d04",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-arm64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-arm64-egl.cdx.json",
+        "sha256": "881a4ce726dcf1b3ad1e176276c59f1ec129aaf39d64e07f9975eaa08f2d971b"
+      }
+    },
+    {
+      "platform": "linux-gnu-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-gnu-arm64-vulkan.tar.gz",
+      "sha256": "ef973e1c28f8f778a29c80debd25d1153208eabf424484a2c31c0ab75050f07c",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-arm64-vulkan.cdx.json",
+        "sha256": "984043d5a54dff0a17bb8a0b11ca53cac281acbc611ca52aa9f2af926d905400"
+      }
+    },
+    {
+      "platform": "linux-gnu-loongarch64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-gnu-loongarch64-egl.tar.gz",
+      "sha256": "2c5f8ef3812b974f23e0b3aa8f2ccc4176a3118f58ff8314c61b5245fa66bd24",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-loongarch64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-loongarch64-egl.cdx.json",
+        "sha256": "cded25cb01b31e3814801d9af826276f2a72bc29ee1d553d824628a90028a75c"
+      }
+    },
+    {
+      "platform": "linux-gnu-loongarch64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-gnu-loongarch64-vulkan.tar.gz",
+      "sha256": "3db972786e3779031bc817ddf4b02b7196af1a0f7969765e245a0b579c31813b",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-loongarch64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-loongarch64-vulkan.cdx.json",
+        "sha256": "600f3cec5a99aae5a5054e4e2f97a5e88c04766e9d6ba3453f04058e32bb6932"
+      }
+    },
+    {
+      "platform": "linux-gnu-riscv64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-gnu-riscv64-egl.tar.gz",
+      "sha256": "315fc7d4f89ffe0525c3e20adc322891cbb40515d556d77c38136d84d596f19a",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-riscv64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-riscv64-egl.cdx.json",
+        "sha256": "2df1360d9fdf10c8c56729077aa300773518e49360b5fe06733fdb5c485b4c04"
+      }
+    },
+    {
+      "platform": "linux-gnu-riscv64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-gnu-riscv64-vulkan.tar.gz",
+      "sha256": "abf9ba015cdf3e11b9da803091ec1dc41fef15ba34860466c9db6adf2bea07b7",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-riscv64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-riscv64-vulkan.cdx.json",
+        "sha256": "3d4da6cd814a76e58cf331117967f49f785f28f00295ea11c6824c486bd7826c"
+      }
+    },
+    {
+      "platform": "linux-gnu-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-gnu-x64-egl.tar.gz",
+      "sha256": "6de4757fc6b2af8ba1d03e7696831708c8128745bd4cf12aba9981412dfda032",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-x64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-x64-egl.cdx.json",
+        "sha256": "2de715da754c12f3c17742a38b19c88cc038248b4fea7029e0e824a783917531"
+      }
+    },
+    {
+      "platform": "linux-gnu-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-gnu-x64-vulkan.tar.gz",
+      "sha256": "9bb1d1e0baedefde3ac062e7834b4dd1fee278d97201f07053eda999db0b2bfd",
+      "sbom": {
+        "file": "maplibre-native-c-linux-gnu-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-gnu-x64-vulkan.cdx.json",
+        "sha256": "845d8c4df9a13f96d0fd0506d9a2b4e7292f80a145868949eac15bcec7b1c881"
+      }
+    },
+    {
+      "platform": "linux-musl-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-musl-arm64-egl.tar.gz",
+      "sha256": "6561bb4c027fe214952c0cdcf614f614e579f19396a08d77c310c7c3389e1048",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-arm64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-arm64-egl.cdx.json",
+        "sha256": "0a4887c1876ea1a2cb02f0f7d1fa7fa6395f788f6e40ba926e5c7348187dab3c"
+      }
+    },
+    {
+      "platform": "linux-musl-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-musl-arm64-vulkan.tar.gz",
+      "sha256": "72917a1d40685fec33e82f242966e620fd064b0262c471cd1ae5a432fa03ddb3",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-arm64-vulkan.cdx.json",
+        "sha256": "e98b59450a9458f118207f404e11cab24dd3fe40cc85c9ed44dacc7b0912add8"
+      }
+    },
+    {
+      "platform": "linux-musl-loongarch64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-musl-loongarch64-egl.tar.gz",
+      "sha256": "f39d96791f493c4f2cf0d6fec771964dcb48aeb118613a70945e49afa60057f9",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-loongarch64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-loongarch64-egl.cdx.json",
+        "sha256": "5d8e3a1e1cb72d4e733452da89e7ac41adccc642fddbdd4f0a3b779969588abc"
+      }
+    },
+    {
+      "platform": "linux-musl-loongarch64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-musl-loongarch64-vulkan.tar.gz",
+      "sha256": "cc7f10bdc18688ce3ab7cd162bdc281881ab257f3b5829b9860663e6ffcf8ae7",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-loongarch64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-loongarch64-vulkan.cdx.json",
+        "sha256": "94621ac7f9fde7a8625541902edb687b89632cdcf5edde4382f27615ee266f76"
+      }
+    },
+    {
+      "platform": "linux-musl-riscv64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-musl-riscv64-egl.tar.gz",
+      "sha256": "08a4f00284b41a799baddafc54803b825893bedb55da6df88002cacaf9be5d79",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-riscv64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-riscv64-egl.cdx.json",
+        "sha256": "ca997f3a1a6d3dffd7e169975ce0b7b2a7e1dccbc41bbd022c77866d425fd644"
+      }
+    },
+    {
+      "platform": "linux-musl-riscv64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-musl-riscv64-vulkan.tar.gz",
+      "sha256": "afef2fb02b4770fb54b0b5cac3204d1a54e778b35ca71b0bdfe2e8817fc387dd",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-riscv64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-riscv64-vulkan.cdx.json",
+        "sha256": "d5a9de67604857779698dfec7fa056c27fcd1de894cef7adfddcfe54d743f2a4"
+      }
+    },
+    {
+      "platform": "linux-musl-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-linux-musl-x64-egl.tar.gz",
+      "sha256": "653d61556a89fc2721bfcd7fd047668739628b9a1e2f3a22595de0b9e6eafb60",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-x64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-x64-egl.cdx.json",
+        "sha256": "78e24344218faf5f8852e41fbbdff72e785eca7c4b1de8d9aeb8fa7fe0df9611"
+      }
+    },
+    {
+      "platform": "linux-musl-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-linux-musl-x64-vulkan.tar.gz",
+      "sha256": "df16fa3e990aad8a7c9472414bc17c4c39ce314d5194d0670c8aed137989c990",
+      "sbom": {
+        "file": "maplibre-native-c-linux-musl-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-linux-musl-x64-vulkan.cdx.json",
+        "sha256": "171621bf643bcccfb1ad464eccb5368d886156de8a53c9a2b359fba02a2e8d8b"
+      }
+    },
+    {
+      "platform": "macos-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-macos-arm64-egl.tar.gz",
+      "sha256": "c85c6876332b817fe05e7d61c2b1f04943f2fab12d37d1a1177056031eec73e2",
+      "sbom": {
+        "file": "maplibre-native-c-macos-arm64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-macos-arm64-egl.cdx.json",
+        "sha256": "8c21eede916a8dbd806c1aa4d5eb42a3edbc01c91333d4b8a05a9350bdcbc4ad"
+      }
+    },
+    {
+      "platform": "macos-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-macos-arm64-metal.tar.gz",
+      "sha256": "d445f42a6a84298ae316ac37ef9835356cedb90bbf103341d4d63593a8186cb1",
+      "sbom": {
+        "file": "maplibre-native-c-macos-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-macos-arm64-metal.cdx.json",
+        "sha256": "992f280bb6cf33a8e429111133db67a2d0149bc300f9832980473b14b0ed471d"
+      }
+    },
+    {
+      "platform": "macos-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-macos-arm64-vulkan.tar.gz",
+      "sha256": "046c26c153bc4a4bb2240da62f102c690abb075f335321011f03f32cae626c58",
+      "sbom": {
+        "file": "maplibre-native-c-macos-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-macos-arm64-vulkan.cdx.json",
+        "sha256": "14bd1ab3f2a2eb0f9f6ef5a369c75208176769a9131d6deabc1e52be54957bca"
+      }
+    },
+    {
+      "platform": "macos-x64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-macos-x64-metal.tar.gz",
+      "sha256": "30570df6cc5fa23a26f74788bd991bdf7bf3c9b8b91527161ef1a1634dacaf54",
+      "sbom": {
+        "file": "maplibre-native-c-macos-x64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-macos-x64-metal.cdx.json",
+        "sha256": "8a13f5f1fe26941bc2f8a782f10e43bae576f5df83c150f1f77013e29262e3eb"
+      }
+    },
+    {
+      "platform": "windows-mingw-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-mingw-arm64-vulkan.tar.gz",
+      "sha256": "be8417ed3eb31c024f65abe1c963b6ddf97d17531683286026ef3160f4fd9924",
+      "sbom": {
+        "file": "maplibre-native-c-mingw-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-mingw-arm64-vulkan.cdx.json",
+        "sha256": "1690c4990285f0b1f55af7ac54a947623a7c9ff638b90dd695f9df033255adaf"
+      }
+    },
+    {
+      "platform": "windows-mingw-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-mingw-arm64-wgl.tar.gz",
+      "sha256": "29acd6ca8c05cf1899e30ffaa62692e602a0596eb8cbae20412a545340769562",
+      "sbom": {
+        "file": "maplibre-native-c-mingw-arm64-wgl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-mingw-arm64-wgl.cdx.json",
+        "sha256": "5a3db8ac8522d86a6c7a7df994c8bd00838c620abbec303c4b1eb677c7cba1ce"
+      }
+    },
+    {
+      "platform": "windows-mingw-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-mingw-x64-vulkan.tar.gz",
+      "sha256": "0eb465473fa6eac1990b36215497463ae18e03a1aa7aac7e3f4cae66ea521d5f",
+      "sbom": {
+        "file": "maplibre-native-c-mingw-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-mingw-x64-vulkan.cdx.json",
+        "sha256": "af4d2d94d90bafbd037ff8123dbe71801a49bead6b9d3cf4da1d1e6b256731a0"
+      }
+    },
+    {
+      "platform": "windows-mingw-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-mingw-x64-wgl.tar.gz",
+      "sha256": "3e30069f86b9181fd75523cf3a3d4181296cda0ca2842b2a64988aafb8e04e0e",
+      "sbom": {
+        "file": "maplibre-native-c-mingw-x64-wgl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-mingw-x64-wgl.cdx.json",
+        "sha256": "c1e63c2e2e5059aac2c754b026dc50fe6dad571f4e63e6aac9a783ef1d42e753"
+      }
+    },
+    {
+      "platform": "ohos-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-ohos-arm64-egl.tar.gz",
+      "sha256": "7efdb2cd4c2ee80875f9ec226c6fe0c6157b51786fec34b72bc62c3b599002e6",
+      "sbom": {
+        "file": "maplibre-native-c-ohos-arm64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ohos-arm64-egl.cdx.json",
+        "sha256": "daebad27d207a2933949eaddda9bb66c6991ed8cbaa47e170579468785c81b97"
+      }
+    },
+    {
+      "platform": "ohos-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-ohos-arm64-vulkan.tar.gz",
+      "sha256": "52a5d28299d42220160f4b16cef572fe81cc600a75cdf4726116a17aa576d450",
+      "sbom": {
+        "file": "maplibre-native-c-ohos-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ohos-arm64-vulkan.cdx.json",
+        "sha256": "cc9d4124761b8364660c7716c12abd22f6d39e2e4658bfb20719002a293a2c51"
+      }
+    },
+    {
+      "platform": "ohos-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-ohos-x64-egl.tar.gz",
+      "sha256": "0b71f81f57ca8af8de5c7a5e1e97577fdc2a226536e4d61f154224b5cc7170bf",
+      "sbom": {
+        "file": "maplibre-native-c-ohos-x64-egl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ohos-x64-egl.cdx.json",
+        "sha256": "03526cf11f03eb3f86fd971881402ac852a69b9bab2ad9f7537224768ccd7e7f"
+      }
+    },
+    {
+      "platform": "ohos-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-ohos-x64-vulkan.tar.gz",
+      "sha256": "9297ab2166d55b741b3a8f60dea9f964904c8921672455d5b43df9936ec90663",
+      "sbom": {
+        "file": "maplibre-native-c-ohos-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-ohos-x64-vulkan.cdx.json",
+        "sha256": "a057d65c07109db224db9bc84830f1ef7d8d624536d67468d661b9b2fb8565d3"
+      }
+    },
+    {
+      "platform": "tvos-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-tvos-arm64-metal.tar.gz",
+      "sha256": "82dfe48172ec786d6f03d22120f671b7b623478448823f0d91c376fc37c7a60d",
+      "sbom": {
+        "file": "maplibre-native-c-tvos-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-tvos-arm64-metal.cdx.json",
+        "sha256": "e66e8b8e299f95e7ea57d5e84455f17df65c97ec4a8a0319703f48853d7ead33"
+      }
+    },
+    {
+      "platform": "tvos-simulator-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-tvos-simulator-arm64-metal.tar.gz",
+      "sha256": "1f503ec222b31df426d14f0730e1ad511f1a2389e07a6c51ce87f31c2e0bc41c",
+      "sbom": {
+        "file": "maplibre-native-c-tvos-simulator-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-tvos-simulator-arm64-metal.cdx.json",
+        "sha256": "0ce60a49c6d11635e9a7f94fc39733e7f25b39f32b3160c413c2f4b93cd9548a"
+      }
+    },
+    {
+      "platform": "visionos-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-visionos-arm64-metal.tar.gz",
+      "sha256": "fa45921b1dbf8de66c0b08c85f3efa236cbab114c2a74a59469c46c4d82295d2",
+      "sbom": {
+        "file": "maplibre-native-c-visionos-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-visionos-arm64-metal.cdx.json",
+        "sha256": "211f6586b755f1c32582dbeeb2c6357e4d92711e43b6278a10f7567e2925e53a"
+      }
+    },
+    {
+      "platform": "visionos-simulator-arm64",
+      "backend": "metal",
+      "archive": "maplibre-native-c-visionos-simulator-arm64-metal.tar.gz",
+      "sha256": "d9bc7de38dd94d318f9e1524167eb9649471cc7e054a33dacd7251daaf02711a",
+      "sbom": {
+        "file": "maplibre-native-c-visionos-simulator-arm64-metal.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-visionos-simulator-arm64-metal.cdx.json",
+        "sha256": "e3acb30b9fbb885cfcf573d45783d0b78cdb02555ea31c9699c2b2f11a43297f"
+      }
+    },
+    {
+      "platform": "windows-arm64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-windows-arm64-vulkan.tar.gz",
+      "sha256": "764383f315ad495baedccb3ae48a5fbcd0be809b5fbb9bda08d571ae453e19a3",
+      "sbom": {
+        "file": "maplibre-native-c-windows-arm64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-windows-arm64-vulkan.cdx.json",
+        "sha256": "a498a21363271377afe96b9beec5b9ea39dd5988dc2c064e83d43973b18be0f8"
+      }
+    },
+    {
+      "platform": "windows-arm64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-windows-arm64-wgl.tar.gz",
+      "sha256": "53a8680a7099539e53b222c72793c83c9205df4ef686917e1d0e411ec91207f6",
+      "sbom": {
+        "file": "maplibre-native-c-windows-arm64-wgl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-windows-arm64-wgl.cdx.json",
+        "sha256": "4195f3217c54528f30c245dcd18aec765c6612e38cce3e0d1c7de8c63616c453"
+      }
+    },
+    {
+      "platform": "windows-x64",
+      "backend": "vulkan",
+      "archive": "maplibre-native-c-windows-x64-vulkan.tar.gz",
+      "sha256": "dbdeb3e1d819d350a4ba6cf8689408e69fd9f67567b2a26a0e798865a26fe5a7",
+      "sbom": {
+        "file": "maplibre-native-c-windows-x64-vulkan.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-windows-x64-vulkan.cdx.json",
+        "sha256": "17bf5e35b6de1ddc9e1c60bb22699a9e834b212980461ed46ecc485ba05c20ef"
+      }
+    },
+    {
+      "platform": "windows-x64",
+      "backend": "opengl",
+      "archive": "maplibre-native-c-windows-x64-wgl.tar.gz",
+      "sha256": "f62e471be7e4f671e5c6071b3b58e2018e3f122acd1be2bdb5ca5aed677b68d7",
+      "sbom": {
+        "file": "maplibre-native-c-windows-x64-wgl.cdx.json",
+        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-windows-x64-wgl.cdx.json",
+        "sha256": "bf1fd82b6ee3c8070bbf421a08f61ba4fd955f9c9c3a915221ddedcc19d5356b"
+      }
+    }
+  ],
+  "xcframework": {
+    "archive": "MaplibreNativeC.xcframework.zip",
+    "sha256": "9aa28513d4fda3a3ce477e67e0f731d896a3c17d538a1005d992cc1da28202a0",
+    "sbom": {
+      "file": "MaplibreNativeC.xcframework.cdx.json",
+      "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/MaplibreNativeC.xcframework.cdx.json",
+      "sha256": "0b169b62df6e10119f9ff9f6d7feb6ab9612b96d5494e9b9c1ac644b4f411935"
+    }
+  }
+}
