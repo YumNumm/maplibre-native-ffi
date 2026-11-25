@@ -225,12 +225,8 @@
       "platform": "android-arm",
       "backend": "opengl",
       "archive": "maplibre-native-c-android-arm-egl.tar.gz",
-      "sha256": "cff8a42bcdb17175f61f359bbb9be35f4d5dee8889c8a08d7272b4f49871b35e",
-      "sbom": {
-        "file": "maplibre-native-c-android-arm-egl.cdx.json",
-        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm-egl.cdx.json",
-        "sha256": "9c6bd44d498b0fad8ca27b25a1c2d2ad74bcd86f81f5da031b58af6e2c324f00"
-      }
+      "sha256": "1d41d4fb5e03b045d84710193b9ae4634581a7dfdc89e9b12a36662df13418e1",
+      "url": "https://github.com/YumNumm/maplibre-native-ffi/releases/download/v0.202611.0-yumnumm.2/maplibre-native-c-android-arm-egl.tar.gz"
     },
     {
       "platform": "android-arm",
@@ -247,12 +243,8 @@
       "platform": "android-arm64",
       "backend": "opengl",
       "archive": "maplibre-native-c-android-arm64-egl.tar.gz",
-      "sha256": "08306a064c84f24eba6c4a4115ab6186124488909340ac089369c1771f2b50f0",
-      "sbom": {
-        "file": "maplibre-native-c-android-arm64-egl.cdx.json",
-        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-arm64-egl.cdx.json",
-        "sha256": "c713646857d9532c0c06de53a259171100b91f173b48a6acad1d59d8f8f543d7"
-      }
+      "sha256": "7e2fd4aeed786e8c022f4c3c20c6349469d2de210018a283b690cd95d481e14b",
+      "url": "https://github.com/YumNumm/maplibre-native-ffi/releases/download/v0.202611.0-yumnumm.2/maplibre-native-c-android-arm64-egl.tar.gz"
     },
     {
       "platform": "android-arm64",
@@ -269,12 +261,8 @@
       "platform": "android-x64",
       "backend": "opengl",
       "archive": "maplibre-native-c-android-x64-egl.tar.gz",
-      "sha256": "5bcaf3994219e4845cdecc33acb528c526212d6e5a3a405329f731c856a5dcdd",
-      "sbom": {
-        "file": "maplibre-native-c-android-x64-egl.cdx.json",
-        "url": "https://github.com/maplibre/maplibre-native-ffi/releases/download/v0.202611.0/maplibre-native-c-android-x64-egl.cdx.json",
-        "sha256": "813fa9a46b561c9157afebcdfe85333b4649518aa61927da8d23c5584e427963"
-      }
+      "sha256": "1cc1d2fadf03940a6801c3363b9a5e0d4ad0b8fd1bbd38cb9b2acb5116b1b354",
+      "url": "https://github.com/YumNumm/maplibre-native-ffi/releases/download/v0.202611.0-yumnumm.2/maplibre-native-c-android-x64-egl.tar.gz"
     },
     {
       "platform": "android-x64",
