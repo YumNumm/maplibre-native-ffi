@@ -1,0 +1,63 @@
+Sample the color-relief DEM with nearest filtering and decode it in highp.
+
+The color-relief layer sampled the terrain-RGB texture with linear filtering.
+Interpolating the packed red, green and blue bytes does not interpolate the
+elevation, and on PowerVR GPUs (Pixel 10 and 11) the filtered texels decode to
+values outside every stop, so the layer drew nothing. hillshade already samples
+the same DEM with nearest filtering.
+
+The fragment shader also inherited `precision mediump float` from the prelude.
+The decode sums terms near 10000, where a 16-bit float steps by 8, so declare
+highp as hillshade_prepare does.
+
+diff --git a/include/mln/shaders/gl/color_relief.hpp b/include/mln/shaders/gl/color_relief.hpp
+index 64a42b3..332919e 100644
+--- a/include/mln/shaders/gl/color_relief.hpp
++++ b/include/mln/shaders/gl/color_relief.hpp
+@@ -35,7 +35,11 @@ void main() {
+     if (a_pos.y > 32766.5) v_pos.y = 1.0;
+ }
+ )";
+-    static constexpr const char* fragment = R"(layout(std140) uniform ColorReliefDrawableUBO {
++    static constexpr const char* fragment = R"(#ifdef GL_ES
++precision highp float;
++#endif
++
++layout(std140) uniform ColorReliefDrawableUBO {
+     highp mat4 u_matrix;
+ };
+ 
+diff --git a/shaders/color_relief.fragment.glsl b/shaders/color_relief.fragment.glsl
+index ada54a5..face48e 100644
+--- a/shaders/color_relief.fragment.glsl
++++ b/shaders/color_relief.fragment.glsl
+@@ -1,3 +1,7 @@
++#ifdef GL_ES
++precision highp float;
++#endif
++
+ layout(std140) uniform ColorReliefDrawableUBO {
+     highp mat4 u_matrix;
+ };
+diff --git a/src/mln/renderer/layers/render_color_relief_layer.cpp b/src/mln/renderer/layers/render_color_relief_layer.cpp
+index 7aef68f..6a04faf 100644
+--- a/src/mln/renderer/layers/render_color_relief_layer.cpp
++++ b/src/mln/renderer/layers/render_color_relief_layer.cpp
+@@ -368,7 +368,7 @@ void RenderColorReliefLayer::update(gfx::ShaderRegistry& shaders,
+             }
+             std::shared_ptr<gfx::Texture2D> demTexture = context.createTexture2D();
+             demTexture->setImage(demImagePtr);
+-            demTexture->setSamplerConfiguration({.filter = gfx::TextureFilterType::Linear,
++            demTexture->setSamplerConfiguration({.filter = gfx::TextureFilterType::Nearest,
+                                                  .wrapU = gfx::TextureWrapType::Clamp,
+                                                  .wrapV = gfx::TextureWrapType::Clamp});
+             drawable.setTexture(demTexture, idColorReliefImageTexture);
+@@ -407,7 +407,7 @@ void RenderColorReliefLayer::update(gfx::ShaderRegistry& shaders,
+ 
+         std::shared_ptr<gfx::Texture2D> demTexture = context.createTexture2D();
+         demTexture->setImage(demImagePtr);
+-        demTexture->setSamplerConfiguration({.filter = gfx::TextureFilterType::Linear,
++        demTexture->setSamplerConfiguration({.filter = gfx::TextureFilterType::Nearest,
+                                              .wrapU = gfx::TextureWrapType::Clamp,
+                                              .wrapV = gfx::TextureWrapType::Clamp});
+         builder->setTexture(demTexture, idColorReliefImageTexture);
